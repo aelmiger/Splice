@@ -1,7 +1,7 @@
 import torch
 import numpy as np
 import random
-from data.Dataset import SingleImageDataset
+from data.Dataset import SingleImageDataset, MultiImageDataset
 from models.model import Model
 from util.losses import LossG
 from util.util import get_scheduler, get_optimizer, save_result
@@ -31,7 +31,7 @@ def train_model(dataroot, callback=None):
     print(f'running with seed: {seed}.')
 
     # create dataset, loader
-    dataset = SingleImageDataset(cfg)
+    dataset = MultiImageDataset(cfg)
 
     # define model
     model = Model(cfg)
